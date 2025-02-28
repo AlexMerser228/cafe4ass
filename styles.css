@@ -1,3 +1,6 @@
+/* Підключення нестандартного шрифта з Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -12,9 +15,46 @@ header {
     background-color: rgba(139, 0, 0, 0.8); /* Червоний фон з прозорістю */
     color: white;
     padding: 15px;
-    font-size: 24px;
+    font-size: 48px;
+    font-family: 'Pacifico', cursive; /* Нестандартний шрифт */
+    animation: waveAnimation 2s ease-in-out infinite; /* Додаємо анімацію */
 }
 
+/* Анімація хвилі для тексту */
+@keyframes waveAnimation {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    10% {
+        transform: translateY(-10px);
+    }
+    20% {
+        transform: translateY(10px);
+    }
+    30% {
+        transform: translateY(-10px);
+    }
+    40% {
+        transform: translateY(10px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+    70% {
+        transform: translateY(10px);
+    }
+    80% {
+        transform: translateY(-10px);
+    }
+    90% {
+        transform: translateY(10px);
+    }
+}
+
+/* Стилі для інших елементів */
 .section {
     padding: 20px;
     margin: 10px;
