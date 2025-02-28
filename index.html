@@ -37,6 +37,22 @@
         <p>📞 Телефон: Домашній</p>
     </div>
     
-    <footer>© 2025 Кафе у Дмитра. Всі права захищено.Окрім права на незайманість вашої сраки</footer>
+    <footer>© 2025 Кафе у Дмитра. Всі права захищено.Окрім права на незаймааність вашої сраки</footer>
+    
+    <!-- Кнопка для відкриття чату -->
+    <button id="chatButton" class="chat-button">💬 Чат</button>
+    
+    <!-- Вікно чату -->
+    <div id="chatWindow" class="chat-window">
+        <div class="chat-header">
+            <span>Чат відвідувачів</span>
+            <button id="closeChat" class="close-btn">X</button>
+        </div>
+        <div id="chatMessages" class="chat-messages"></div>
+        <input type="text" id="chatInput" class="chat-input" placeholder="Напишіть повідомлення..." />
+        <button id="sendMessage" class="send-btn">Відправити</button>
+    </div>
+
+    <script src="chat.js"></script>
 </body>
 </html>
