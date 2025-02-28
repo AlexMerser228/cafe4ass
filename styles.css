@@ -4,7 +4,7 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background: url('https://www.myvin.com.ua/uploads/article/img_large/20043/ec307899c52d5d40af68cdda8a3302d5.png') no-repeat center center fixed;
+    background: url('path_to_your_image.jpg') no-repeat center center fixed;
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -20,7 +20,6 @@ header {
     animation: waveAnimation 2s ease-in-out infinite; /* Додаємо анімацію */
 }
 
-/* Анімація хвилі для тексту */
 @keyframes waveAnimation {
     0%, 100% {
         transform: translateY(0);
@@ -54,14 +53,13 @@ header {
     }
 }
 
-/* Стилі для інших елементів */
 .section {
     padding: 20px;
     margin: 10px;
     background: rgba(255, 255, 255, 0.5); /* Прозорий білий фон */
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    color: #333; /* Темний колір тексту */
+    color: #333;
 }
 
 .menu-item, .activity {
@@ -74,4 +72,69 @@ footer {
     color: white;
     padding: 10px;
     margin-top: 20px;
+}
+
+/* Стилі для кнопки чату */
+.chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #8B0000;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+/* Стилі для вікна чату */
+.chat-window {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    display: none;
+    flex-direction: column;
+    border: 2px solid #8B0000;
+}
+
+.chat-header {
+    background-color: #8B0000;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-messages {
+    padding: 10px;
+    flex-grow: 1;
+    overflow-y: auto;
+    font-size: 14px;
+    background-color: #f8f8f8;
+    border-bottom: 2px solid #8B0000;
+}
+
+.chat-input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-top: 2px solid #8B0000;
+    font-size: 14px;
+}
+
+.send-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #8B0000;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
