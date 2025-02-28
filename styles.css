@@ -1,57 +1,37 @@
-/* Загальні стилі для всього сайту */
 body {
-  font-family: 'Arial', sans-serif;
-  color: white;
-  background-image: url('https://img.hotels24.ua/photos/ria/new_images/1123/112316/11231614/11231614m.jpg'); /* Заміни на реальний лінк до фото Вінниці */
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  margin: 0;
-  padding: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: url('path_to_your_image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    color: #333;
 }
 
-/* Стилі для заголовків */
-h1, h2, h3 {
-  font-family: 'Georgia', serif;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-  color: #fff; /* Білий колір для заголовків */
+header {
+    background-color: rgba(139, 0, 0, 0.8); /* Червоний фон з прозорістю */
+    color: white;
+    padding: 15px;
+    font-size: 24px;
 }
 
-/* Стилі для меню */
-.menu-item {
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-  color: #f4f4f4;
+.section {
+    padding: 20px;
+    margin: 10px;
+    background: rgba(255, 255, 255, 0.5); /* Прозорий білий фон */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    color: #333; /* Темний колір тексту */
 }
 
-/* Стилі для кнопок */
-button {
-  background-color: #d19c00; /* Золотистий відтінок для аутентичності */
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
-  color: white;
-  text-transform: uppercase;
-  border-radius: 5px;
+.menu-item, .activity {
+    font-size: 18px;
+    margin: 5px 0;
 }
 
-button:hover {
-  background-color: #b38d00;
-}
-
-/* Прозорі блоки */
-.card {
-  background-color: rgba(255, 255, 255, 0.3); /* Більш прозорий білий фон */
-  color: #333; /* Темний колір для тексту для контрасту */
-  padding: 20px;
-  border-radius: 10px; /* За бажанням округлені кути */
-}
-
-/* Футер */
 footer {
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 20px;
-  text-align: center;
-  color: #fff;
+    background-color: rgba(139, 0, 0, 0.8); /* Червоний фон з прозорістю */
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
 }
