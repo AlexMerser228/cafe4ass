@@ -55,15 +55,17 @@
 
     <!-- Кнопка "Хто на вахті" -->
     <button id="watchButton" class="watch-button">Хто на вахті</button>
-
-    <!-- Спливаюче вікно "Хто на вахті" -->
-    <div id="watchPopup" class="popup">
+    
+    <!-- Спливаюче вікно -->
+    <div id="popup" class="popup">
         <div class="popup-content">
             <span id="popupText">Влад п*дор на вахті</span>
+            <input type="text" id="popupInput" class="popup-input" placeholder="Введіть новий текст...">
+            <button id="savePopup" class="save-popup">Зберегти</button>
             <button id="closePopup" class="close-popup">Закрити</button>
         </div>
     </div>
-    
+
     <script src="chat.js"></script>
     <script src="watch.js"></script>
 </body>
