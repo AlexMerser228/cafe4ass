@@ -5,55 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кафе у Дмитра</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        .popup-content p {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 18px;
-            line-height: 1.5;
-            color: #333;
-            background-color: #f9f9f9;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin: 0;
-        }
-        /* Стилі для нового попапу замовлення */
-        .order-popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-        }
-        .order-popup-content {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 300px;
-            text-align: center;
-        }
-        .order-form input, textarea {
-            width: 100%;
-            margin-bottom: 10px;
-            font-family: 'Montserrat', sans-serif;
-        }
-        .order-button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>Кафе у Дмитра</header>
@@ -65,28 +17,35 @@
     
     <div class="section">
         <h2>Меню</h2>
-        <p class="menu-item">🥩 Стейк з яловичини - відсутній </p>
-        <p class="menu-item">🍕 Піца "Чотири сири" - Якщо замовите </p>
-        <p class="menu-item">🍜 Борщ український - відсутній </p>
-        <p class="menu-item">🥗 Грецький салат - відсутній </p>
-        <p class="menu-item">🍰 Тірамісу - шо це? </p>
+        <p class="menu-item">🥩 Стейк з яловичини - відсутній</p>
+        <p class="menu-item">🍕 Піца "Чотири сири" - Якщо замовите <button class="add-to-order" data-dish="Піца 'Чотири сири'">Додати</button></p>
+        <p class="menu-item">🍜 Борщ український - відсутній</p>
+        <p class="menu-item">🥗 Грецький салат - відсутній</p>
+        <p class="menu-item">🍰 Тірамісу - шо це?</p>
     </div>
     
     <div class="section">
         <h2>Розваги</h2>
         <p class="activity">🎤 Караоке тільки пісень Дорофеєвої</p>
         <p class="activity">🎱 Більярд Кишеньковий</p>
-        <p class="activity">🎲 Настільні ігри(при наявності з собою столу)</p>
+        <p class="activity">🎲 Настільні ігри (при наявності з собою столу)</p>
         <p class="activity">🎶 Ледь Жива музика</p>
+    </div>
+
+    <div class="section">
+        <h2>Відгуки</h2>
+        <p class="review">⭐⭐⭐⭐⭐ "Борщу не було, але настільний теніс на чужому столі врятував вечір!" - Вася</p>
+        <p class="review">⭐⭐⭐ "Піца норм, але Дорофеєва в караоке вже в печінках сидить." - Оля</p>
     </div>
     
     <div class="section">
         <h2>Контакти</h2>
         <p>📍 Адреса: вул. Марії Литвиненко-Вольгемут 56, Вінниця</p>
         <p>📞 Телефон: Домашній</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2601.452413765576!2d28.46865731568347!3d49.23308247932686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDEzJzU5LjEiTiAyOMKwMjgnMDkuMiJF!5e0!3m2!1suk!2sua!4v1630000000000" width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
     </div>
     
-    <footer>© 2025 Кафе у Дмитра. Всі права захищено. Окрім права на незаймааність вашої сраки</footer>
+    <footer>© 2025 Кафе у Дмитра. Всі права захищено. Окрім права на незайманість вашої сраки</footer>
     
     <!-- Кнопка для замовлення -->
     <button id="orderButton" class="order-button">Зробити замовлення</button>
@@ -107,11 +66,13 @@
         <div class="order-popup-content">
             <h2>Створити замовлення</h2>
             <form id="orderForm">
-                <input type="text" id="name" placeholder="Ім'я" required>
-                <input type="tel" id="phone" placeholder="Номер телефону" required>
-                <textarea id="dishes" placeholder="Перелік страв" required></textarea>
-                <button type="submit" class="save-popup">Відправити</button>
-                <button type="button" id="closeOrderPopup" class="close-popup">Закрити</button>
+                <input type="text" id="name" placeholder="Ваше ім'я" required>
+                <input type="tel" id="phone" placeholder="Номер телефону (+380...)" required>
+                <textarea id="dishes" placeholder="Що бажаєте замовити?" required></textarea>
+                <div class="button-group">
+                    <button type="submit" class="submit-btn">Відправити</button>
+                    <button type="button" id="closeOrderPopup" class="close-btn">Закрити</button>
+                </div>
             </form>
         </div>
     </div>
@@ -129,9 +90,23 @@
                 orderPopup.style.display = "flex";
             });
 
-            // Закрити попап замовлення
+            // Закрити попап замовлення з анімацією
             closeOrderPopup.addEventListener("click", function () {
-                orderPopup.style.display = "none";
+                orderPopup.style.animation = "fadeOut 0.3s ease-out";
+                setTimeout(() => {
+                    orderPopup.style.display = "none";
+                    orderPopup.style.animation = "fadeIn 0.3s ease-in";
+                }, 300);
+            });
+
+            // Додати страву з меню в замовлення
+            document.querySelectorAll('.add-to-order').forEach(button => {
+                button.addEventListener('click', function() {
+                    const dish = this.getAttribute('data-dish');
+                    const dishesField = document.getElementById('dishes');
+                    dishesField.value += (dishesField.value ? '\n' : '') + dish;
+                    orderPopup.style.display = "flex";
+                });
             });
 
             // Відправка замовлення в Telegram
@@ -140,9 +115,8 @@
                 const name = document.getElementById("name").value;
                 const phone = document.getElementById("phone").value;
                 const dishes = document.getElementById("dishes").value;
-                const message = `Нове запит від члена скваду:\nПоганяло: ${name}\nТелефон: ${phone}\nПерелік страв: ${dishes}`;
+                const message = `Нове замовлення:\nІм'я: ${name}\nТелефон: ${phone}\nСтрави: ${dishes}`;
 
-                // Заміни на свій токен бота і chat_id групи
                 const botToken = "7782211334:AAEJAJ8yWMY-Ii3RUoObEWccXRTUDVwLWBM";
                 const chatId = "-1002359330866";
                 const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
@@ -151,16 +125,25 @@
                     .then(response => response.json())
                     .then(data => {
                         if (data.ok) {
-                            alert("Замовлення відправлено!");
-                            orderPopup.style.display = "none";
-                            orderForm.reset();
+                            alert("Замовлення відправлено! Чекайте, поки ми розберемося, що таке тірамісу.");
+                            orderPopup.style.animation = "fadeOut 0.3s ease-out";
+                            setTimeout(() => {
+                                orderPopup.style.display = "none";
+                                orderPopup.style.animation = "fadeIn 0.3s ease-in";
+                                orderForm.reset();
+                            }, 300);
                         } else {
-                            alert("Помилка при відправці!");
+                            alert("Помилка при відправці! Можливо, ми знову забули поповнити інтернет.");
                         }
                     })
                     .catch(error => {
                         alert("Помилка: " + error);
                     });
+            });
+
+            // Пасхалка у футері
+            document.querySelector('footer').addEventListener('click', () => {
+                alert('Ти шо, реально думаєш, шо ми захистимо твою сраку? 😂');
             });
         });
     </script>
