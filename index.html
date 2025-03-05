@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кафе у Дмитра</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Додаємо Google Fonts для гарного шрифту -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Стилі для попапу */
+        .popup-content p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            line-height: 1.5;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
     <header>Кафе у Дмитра</header>
@@ -37,7 +53,7 @@
         <p>📞 Телефон: Домашній</p>
     </div>
     
-    <footer>© 2025 Кафе у Дмитра. Всі права захищено.Окрім права на незаймааність вашої сраки</footer>
+    <footer>© 2025 Кафе у Дмитра. Всі права захищено. Окрім права на незаймааність вашої сраки</footer>
     
     <!-- Кнопка для відкриття чату -->
     <button id="chatButton" class="chat-button">💬 Чат</button>
@@ -59,9 +75,9 @@
     <!-- Спливаюче вікно -->
     <div id="popup" class="popup">
         <div class="popup-content">
-            <span id="popupText">Влад п*дор на вахті</span>
-            <input type="text" id="popupInput" class="popup-input" placeholder="Введіть новий текст...">
-            <button id="savePopup" class="save-popup">Зберегти</button>
+            <!-- Змінено з textarea/input на p, редагування заборонено -->
+            <p id="popupText" contenteditable="false">Влад п*дор на вахті</p>
+            <!-- Прибрано input і кнопку "Зберегти", залишив лише "Закрити" -->
             <button id="closePopup" class="close-popup">Закрити</button>
         </div>
     </div>
