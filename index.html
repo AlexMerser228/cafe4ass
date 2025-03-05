@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кафе у Дмитра</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Додаємо Google Fonts для гарного шрифту -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Стилі для попапу */
         .popup-content p {
             font-family: 'Montserrat', sans-serif;
             font-size: 18px;
@@ -19,6 +17,38 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             margin: 0;
+        }
+        /* Стилі для нового попапу замовлення */
+        .order-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .order-popup-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+        . Hawkins: form input, textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .order-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -55,7 +85,7 @@
     
     <footer>© 2025 Кафе у Дмитра. Всі права захищено. Окрім права на незаймааність вашої сраки</footer>
     
-    <!-- Кнопка для відкриття чату -->
+    <!-- Кнопка для чату -->
     <button id="chatButton" class="chat-button">💬 Чат</button>
     
     <!-- Вікно чату -->
@@ -72,17 +102,79 @@
     <!-- Кнопка "Хто на вахті" -->
     <button id="watchButton" class="watch-button">Хто на вахті</button>
     
-    <!-- Спливаюче вікно -->
+    <!-- Попап "Хто на вахті" -->
     <div id="popup" class="popup">
         <div class="popup-content">
-            <!-- Змінено з textarea/input на p, редагування заборонено -->
             <p id="popupText" contenteditable="false">Влад п*дор на вахті</p>
-            <!-- Прибрано input і кнопку "Зберегти", залишив лише "Закрити" -->
             <button id="closePopup" class="close-popup">Закрити</button>
+        </div>
+    </div>
+
+    <!-- Кнопка для замовлення -->
+    <button id="orderButton" class="order-button">Зробити замовлення</button>
+
+    <!-- Попап для замовлення -->
+    <div id="orderPopup" class="order-popup">
+        <div class="order-popup-content">
+            <h2>Створити замовлення</h2>
+            <form id="orderForm">
+                <input type="text" id="name" placeholder="Ім'я" required>
+                <input type="tel" id="phone" placeholder="Номер телефону" required>
+                <textarea id="dishes" placeholder="Перелік страв" required></textarea>
+                <button type="submit" class="save-popup">Відправити</button>
+                <button type="button" id="closeOrderPopup" class="close-popup">Закрити</button>
+            </form>
         </div>
     </div>
 
     <script src="chat.js"></script>
     <script src="watch.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const orderButton = document.getElementById("orderButton");
+            const orderPopup = document.getElementById("orderPopup");
+            const closeOrderPopup = document.getElementById("closeOrderPopup");
+            const orderForm = document.getElementById("orderForm");
+
+            // Відкрити попап замовлення
+            orderButton.addEventListener("click", function () {
+                orderPopup.style.display = "flex";
+            });
+
+            // Закрити попап замовлення
+            closeOrderPopup.addEventListener("click", function () {
+                orderPopup.style.display = "none";
+            });
+
+            // Відправка замовлення в Telegram
+            orderForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+                const name = document.getElementById("name").value;
+                const phone = document.getElementById("phone").value;
+                const dishes = document.getElementById("dishes").value;
+                const message = `Нове замовлення:\nІм'я: ${name}\nТелефон: ${phone}\nСтрави: ${dishes}`;
+
+                // Заміни на свій токен бота і chat_id групи
+                const botToken = "YOUR_BOT_TOKEN";
+                const chatId = "YOUR_CHAT_ID";
+                const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.ok) {
+                            alert("Замовлення відправлено!");
+                            orderPopup.style.display = "none";
+                            orderForm.reset();
+                        } else {
+                            alert("Помилка при відправці!");
+                        }
+                    })
+                    .catch(error => {
+                        alert("Помилка: " + error);
+                    });
+            });
+        });
+    </script>
 </body>
 </html>
