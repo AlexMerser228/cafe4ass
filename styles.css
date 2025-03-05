@@ -1,8 +1,8 @@
-/* Підключення нестандартного шрифта з Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+/* Підключення шрифта Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     text-align: center;
     background: url('https://www.myvin.com.ua/uploads/article/img_large/20043/ec307899c52d5d40af68cdda8a3302d5.png') no-repeat center center fixed;
     background-size: cover;
@@ -15,130 +15,97 @@ header {
     background-color: rgba(139, 0, 0, 0.8); /* Червоний фон з прозорістю */
     color: white;
     padding: 15px;
-    font-size: 48px;
-    font-family: 'Pacifico', cursive; /* Нестандартний шрифт */
-    animation: waveAnimation 2s ease-in-out infinite; /* Додаємо анімацію */
+    font-size: 36px;
+    font-weight: 700;
+    animation: waveAnimation 2s ease-in-out infinite; /* Анімація заголовка */
 }
 
 @keyframes waveAnimation {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    10% {
-        transform: translateY(-10px);
-    }
-    20% {
-        transform: translateY(10px);
-    }
-    30% {
-        transform: translateY(-10px);
-    }
-    40% {
-        transform: translateY(10px);
-    }
-    50% {
-        transform: translateY(0);
-    }
-    60% {
-        transform: translateY(-10px);
-    }
-    70% {
-        transform: translateY(10px);
-    }
-    80% {
-        transform: translateY(-10px);
-    }
-    90% {
-        transform: translateY(10px);
-    }
+    0%, 100% { transform: translateY(0); }
+    10% { transform: translateY(-10px); }
+    20% { transform: translateY(10px); }
+    30% { transform: translateY(-10px); }
+    40% { transform: translateY(10px); }
+    50% { transform: translateY(0); }
+    60% { transform: translateY(-10px); }
+    70% { transform: translateY(10px); }
+    80% { transform: translateY(-10px); }
+    90% { transform: translateY(10px); }
 }
 
 .section {
     padding: 20px;
-    margin: 10px;
-    background: rgba(255, 255, 255, 0.5); /* Прозорий білий фон */
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    color: #333;
+    margin: 20px auto;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.7); /* Прозорий білий фон */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.menu-item, .activity {
+h2 {
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.menu-item, .activity, .review {
     font-size: 18px;
-    margin: 5px 0;
+    margin: 10px 0;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+}
+
+.review {
+    font-style: italic;
+    background: rgba(240, 240, 240, 0.9);
+}
+
+.add-to-order {
+    background: #ff9800;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: transform 0.2s ease;
+}
+
+.add-to-order:hover {
+    transform: scale(1.1);
 }
 
 footer {
-    background-color: rgba(139, 0, 0, 0.8); /* Червоний фон з прозорістю */
+    background-color: rgba(139, 0, 0, 0.8);
     color: white;
-    padding: 10px;
-    margin-top: 20px;
+    padding: 15px;
+    font-size: 14px;
+    cursor: pointer; /* Для пасхалки */
 }
 
-/* Стилі для кнопки чату */
-.chat-button {
+/* Кнопка "Зробити замовлення" */
+.order-button {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background-color: #8B0000;
+    background-color: #4CAF50;
     color: white;
     border: none;
-    padding: 15px;
-    border-radius: 50%;
-    font-size: 24px;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
 }
 
-/* Стилі для вікна чату */
-.chat-window {
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    width: 300px;
-    height: 400px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    display: none;
-    flex-direction: column;
-    border: 2px solid #8B0000;
+.order-button:hover {
+    transform: translateY(-3px);
 }
 
-.chat-header {
-    background-color: #8B0000;
-    color: white;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.chat-messages {
-    padding: 10px;
-    flex-grow: 1;
-    overflow-y: auto;
-    font-size: 14px;
-    background-color: #f8f8f8;
-    border-bottom: 2px solid #8B0000;
-}
-
-.chat-input {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-top: 2px solid #8B0000;
-    font-size: 14px;
-}
-
-.send-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #8B0000;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-/* Стилі для кнопки "Хто на вахті" */
+/* Кнопка "Хто на вахті" */
 .watch-button {
     position: fixed;
     bottom: 20px;
@@ -146,14 +113,20 @@ footer {
     background-color: #8B0000;
     color: white;
     border: none;
-    padding: 15px;
+    padding: 15px 25px;
     border-radius: 10px;
     font-size: 18px;
+    font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
 }
 
-/* Стилі для спливаючого вікна */
+.watch-button:hover {
+    transform: translateY(-3px);
+}
+
+/* Попап "Хто на вахті" */
 .popup {
     display: none;
     position: fixed;
@@ -163,33 +136,137 @@ footer {
     background: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
 }
 
-.popup-content {
-    text-align: center;
-}
-
-.popup-input {
-    width: 100%;
-    padding: 5px;
-    margin-top: 10px;
-}
-
-.save-popup, .close-popup {
-    margin-top: 10px;
-    padding: 5px 10px;
-    border: none;
-    cursor: pointer;
-}
-
-.save-popup {
-    background-color: #008000;
-    color: white;
+.popup-content p {
+    font-size: 18px;
+    color: #333;
+    margin: 0 0 15px;
 }
 
 .close-popup {
     background-color: #8B0000;
     color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
 }
 
+.close-popup:hover {
+    background-color: #6b0000;
+}
+
+/* Попап для замовлення */
+.order-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.order-popup-content {
+    background: linear-gradient(135deg, #ffffff, #f0f4f8);
+    padding: 25px;
+    border-radius: 15px;
+    width: 350px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transform: scale(0.8);
+    animation: popupScale 0.4s ease-out forwards;
+}
+
+.order-popup-content h2 {
+    font-weight: 700;
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.order-popup-content input,
+.order-popup-content textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #333;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.order-popup-content input:focus,
+.order-popup-content textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.order-popup-content textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.submit-btn, .close-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+.close-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.close-btn:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+/* Анімації */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes popupScale {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
