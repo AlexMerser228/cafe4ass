@@ -37,7 +37,7 @@
             width: 300px;
             text-align: center;
         }
-        . Hawkins: form input, textarea {
+        .order-form input, textarea {
             width: 100%;
             margin-bottom: 10px;
             font-family: 'Montserrat', sans-serif;
@@ -49,6 +49,9 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
         }
     </style>
 </head>
@@ -85,19 +88,8 @@
     
     <footer>© 2025 Кафе у Дмитра. Всі права захищено. Окрім права на незаймааність вашої сраки</footer>
     
-    <!-- Кнопка для чату -->
-    <button id="chatButton" class="chat-button">💬 Чат</button>
-    
-    <!-- Вікно чату -->
-    <div id="chatWindow" class="chat-window">
-        <div class="chat-header">
-            <span>Чат відвідувачів</span>
-            <button id="closeChat" class="close-btn">X</button>
-        </div>
-        <div id="chatMessages" class="chat-messages"></div>
-        <input type="text" id="chatInput" class="chat-input" placeholder="Напишіть повідомлення..." />
-        <button id="sendMessage" class="send-btn">Відправити</button>
-    </div>
+    <!-- Кнопка для замовлення -->
+    <button id="orderButton" class="order-button">Зробити замовлення</button>
 
     <!-- Кнопка "Хто на вахті" -->
     <button id="watchButton" class="watch-button">Хто на вахті</button>
@@ -109,9 +101,6 @@
             <button id="closePopup" class="close-popup">Закрити</button>
         </div>
     </div>
-
-    <!-- Кнопка для замовлення -->
-    <button id="orderButton" class="order-button">Зробити замовлення</button>
 
     <!-- Попап для замовлення -->
     <div id="orderPopup" class="order-popup">
@@ -127,7 +116,6 @@
         </div>
     </div>
 
-    <script src="chat.js"></script>
     <script src="watch.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
