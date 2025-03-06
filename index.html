@@ -5,17 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кафе у Дмитра</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Підключення шрифтів як на Koluba -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Підключення AOS для анімацій -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <header>Кафе у Дмитра</header>
+    <header data-aos="fade-down" data-aos-duration="1000">Кафе у Дмитра</header>
     
-    <div class="section">
+    <div class="section" data-aos="fade-up" data-aos-duration="1000">
         <h2>Ласкаво просимо!</h2>
         <p>Смачні страви та веселі розваги для чудового відпочинку!</p>
     </div>
     
-    <div class="section">
+    <div class="section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
         <h2>Меню</h2>
         <p class="menu-item">🥩 Стейк з яловичини - відсутній</p>
         <p class="menu-item">🍕 Піца "Чотири сири" - Якщо замовите <button class="add-to-order" data-dish="Піца 'Чотири сири'">Додати</button></p>
@@ -24,7 +27,7 @@
         <p class="menu-item">🍰 Тірамісу - шо це?</p>
     </div>
     
-    <div class="section">
+    <div class="section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
         <h2>Розваги</h2>
         <p class="activity">🎤 Караоке тільки пісень Дорофеєвої</p>
         <p class="activity">🎱 Більярд Кишеньковий</p>
@@ -32,27 +35,27 @@
         <p class="activity">🎶 Ледь Жива музика</p>
     </div>
 
-    <div class="section">
+    <div class="section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
         <h2>Відгуки</h2>
         <p class="review">⭐⭐⭐⭐⭐ "Кишеньковий більярд врятував вечір, бризгнуло аж на сусідню вулицю!" - Кулик</p>
         <p class="review">⭐⭐⭐ "Нагенси норм, але Дорофеєва вже в печінках сидить." - Оля нічого не писала</p>
         <p class="review">⭐⭐ "Приємна компанія, крім айфонодрочерів, а це 50% відвідувачів." - Віктор</p>
     </div>
     
-    <div class="section">
+    <div class="section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="800">
         <h2>Контакти</h2>
         <p>📍 Адреса: вул. Марії Литвиненко-Вольгемут 56, Вінниця</p>
         <p>📞 Телефон: Домашній</p>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2601.452413765576!2d28.46865731568347!3d49.23308247932686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDEzJzU5LjEiTiAyOMKwMjgnMDkuMiJF!5e0!3m2!1suk!2sua!4v1630000000000" width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
     </div>
     
-    <footer>© 2025 Кафе у Дмитра. Всі права захищено. Окрім права на незайманість вашої сраки</footer>
+    <footer data-aos="fade-up" data-aos-duration="1000">© 2025 Кафе у Дмитра. Всі права захищено. Окрім права на незайманість вашої сраки</footer>
     
     <!-- Кнопка для замовлення -->
-    <button id="orderButton" class="order-button">Зробити замовлення</button>
+    <button id="orderButton" class="order-button" data-aos="zoom-in" data-aos-duration="1000">Зробити замовлення</button>
 
     <!-- Кнопка "Хто на вахті" -->
-    <button id="watchButton" class="watch-button">Хто на вахті</button>
+    <button id="watchButton" class="watch-button" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">Хто на вахті</button>
     
     <!-- Попап "Хто на вахті" -->
     <div id="popup" class="popup">
@@ -79,7 +82,11 @@
         </div>
     </div>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Ініціалізація AOS
+        AOS.init();
+
         document.addEventListener("DOMContentLoaded", function () {
             const orderButton = document.getElementById("orderButton");
             const watchButton = document.getElementById("watchButton");
