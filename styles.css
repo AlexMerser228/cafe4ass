@@ -98,18 +98,23 @@ footer {
     font-weight: 600;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Додано opacity для плавного зникнення */
 }
 
 .order-button:hover {
     transform: translateY(-3px);
 }
 
+.order-button.hidden {
+    opacity: 0;
+    pointer-events: none; /* Щоб кнопка не реагувала на кліки, коли прихована */
+}
+
 /* Кнопка "Хто на вахті" */
 .watch-button {
     position: fixed;
     bottom: 20px;
-    left: 20px;
+    right: 150px; /* Зміщено вправо, щоб не накладалася на "Зробити замовлення" */
     background-color: #8B0000;
     color: white;
     border: none;
@@ -119,11 +124,16 @@ footer {
     font-weight: 600;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Додано opacity для плавного зникнення */
 }
 
 .watch-button:hover {
     transform: translateY(-3px);
+}
+
+.watch-button.hidden {
+    opacity: 0;
+    pointer-events: none; /* Щоб кнопка не реагувала на кліки, коли прихована */
 }
 
 /* Попап "Хто на вахті" */
