@@ -4,7 +4,10 @@
 body {
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    background: linear-gradient(135deg, #f5e8d3, #d9b68b); /* Градієнт як на Koluba */
+    /* Додаємо фон: текстура дерева + градієнт */
+    background: linear-gradient(135deg, rgba(245, 232, 211, 0.8), rgba(217, 182, 139, 0.8)), 
+                url('https://www.transparenttextures.com/patterns/wood-pattern.png') repeat center center fixed;
+    background-size: cover;
     margin: 0;
     padding: 0;
     color: #2c2c2c;
