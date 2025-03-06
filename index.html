@@ -77,7 +77,6 @@
         </div>
     </div>
 
-    <script src="watch.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const orderButton = document.getElementById("orderButton");
@@ -105,7 +104,7 @@
 
             // Відкрити попап "Хто на вахті" і відправити в Telegram
             watchButton.addEventListener("click", function () {
-                popup.style.display = "flex";
+                popup.style.display = "flex"; // Змінено на flex для сумісності з CSS
                 const message = `По запиту з офіційного сайту даної спільноти (https://alexmerser228.github.io/cafe4ass/) Був запит Хто на вахті.\n\n${popupText.innerText}`;
                 const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
 
@@ -119,7 +118,7 @@
                     .catch(error => console.error("Помилка:", error));
             });
 
-            // Закрити попап "Хто на вахті"
+            // Закрити попап "Хто на вахті" з анімацією
             closePopup.addEventListener("click", function () {
                 popup.style.animation = "fadeOut 0.3s ease-out";
                 setTimeout(() => {
