@@ -69,6 +69,7 @@
                 <input type="text" id="name" placeholder="Ваше ім'я" required>
                 <input type="tel" id="phone" placeholder="Номер телефону (+380...)" required>
                 <textarea id="dishes" placeholder="Що бажаєте замовити?" required></textarea>
+                <input type="datetime-local" id="deliveryTime" placeholder="Дата і час доставки" required>
                 <div class="button-group">
                     <button type="submit" class="submit-btn">Відправити</button>
                     <button type="button" id="closeOrderPopup" class="close-btn">Закрити</button>
@@ -165,13 +166,15 @@
                 });
             });
 
-            // Відправка замовлення в Telegram
+            // Відправка замовлення в Telegram з датою і часом
             orderForm.addEventListener("submit", function (e) {
                 e.preventDefault();
                 const name = document.getElementById("name").value;
                 const phone = document.getElementById("phone").value;
                 const dishes = document.getElementById("dishes").value;
-                const message = `Нове замовлення:\nІм'я: ${name}\nТелефон: ${phone}\nСтрави: ${dishes}`;
+                const deliveryTime = document.getElementById("deliveryTime").value;
+                const formattedTime = new Date(deliveryTime).toLocaleString('uk-UA'); // Форматуємо дату і час
+                const message = `Нове замовлення:\nІм'я: ${name}\nТелефон: ${phone}\nСтрави: ${dishes}\nДата і час: ${formattedTime}`;
                 const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
 
                 fetch(url)
