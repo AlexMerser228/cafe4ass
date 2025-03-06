@@ -102,20 +102,34 @@
                 }
             });
 
-            // Відкрити попап "Хто на вахті" і відправити в Telegram
+            // Відкрити попап "Хто на вахті" і відправити в Telegram з обмеженням
             watchButton.addEventListener("click", function () {
-                popup.style.display = "flex"; // Змінено на flex для сумісності з CSS
-                const message = `По запиту з офіційного сайту даної спільноти (https://alexmerser228.github.io/cafe4ass/) Був запит Хто на вахті.\n\n${popupText.innerText}`;
-                const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+                popup.style.display = "flex"; // Відкриваємо попап
 
-                fetch(url)
-                    .then(response => response.json())
-                    .then(data => {
-                        if (!data.ok) {
-                            console.error("Помилка відправки в Telegram:", data);
-                        }
-                    })
-                    .catch(error => console.error("Помилка:", error));
+                const lastSent = localStorage.getItem('lastWatchSent'); // Отримуємо час останньої відправки
+                const now = Date.now(); // Поточний час
+                const tenMinutes = 10 * 60 * 1000; // 10 хвилин у мілісекундах
+
+                // Перевіряємо, чи минуло 10 хвилин
+                if (!lastSent || (now - lastSent >= tenMinutes)) {
+                    const message = `По запиту з офіційного сайту даної спільноти (https://alexmerser228.github.io/cafe4ass/) Був запит Хто на вахті.\n\n${popupText.innerText}`;
+                    const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+                    fetch(url)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.ok) {
+                                localStorage.setItem('lastWatchSent', now); // Зберігаємо час відправки
+                                console.log("Повідомлення відправлено в Telegram");
+                            } else {
+                                console.error("Помилка відправки в Telegram:", data);
+                            }
+                        })
+                        .catch(error => console.error("Помилка:", error));
+                } else {
+                    console.log("Повідомлення не відправлено: ще не минуло 10 хвилин");
+                    // alert("Зачекайте, повідомлення можна відправляти раз на 10 хвилин!");
+                }
             });
 
             // Закрити попап "Хто на вахті" з анімацією
