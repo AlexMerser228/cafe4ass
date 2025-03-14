@@ -1,81 +1,111 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap');
+/* Кастомний шрифт Norse */
+@font-face {
+    font-family: 'Norse';
+    src: url('https://raw.githubusercontent.com/alexmerser228/cafe4ass/main/Norse.otf') format('opentype');
+}
 
 body {
     font-family: 'Lato', sans-serif;
-    background: linear-gradient(rgba(46, 74, 98, 0.8), rgba(46, 74, 98, 0.8)), url('https://www.transparenttextures.com/patterns/dark-wood.png') repeat;
+    background: linear-gradient(rgba(50, 50, 50, 0.8), rgba(50, 50, 50, 0.8)), url('https://www.transparenttextures.com/patterns/paper-fibers.png') repeat;
     background-size: cover;
     margin: 0;
     padding: 0;
-    color: #F5F5F5;
+    color: #E8D8B8;
     overflow-x: hidden;
     position: relative;
 }
 
+/* Анімація вітру з листочками */
+.wind-leaves {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.wind-leaves::before, .wind-leaves::after {
+    content: '🍂';
+    position: absolute;
+    font-size: 20px;
+    opacity: 0.3;
+    animation: wind 10s infinite linear;
+}
+
+.wind-leaves::before { left: 10%; animation-delay: 0s; }
+.wind-leaves::after { left: 60%; animation-delay: 5s; }
+
+@keyframes wind {
+    0% { transform: translateX(-100vw) rotate(0deg); }
+    100% { transform: translateX(100vw) rotate(360deg); }
+}
+
 header {
-    background: linear-gradient(90deg, #2E4A62, #4A6B8A);
+    background: linear-gradient(90deg, #2E2E2E, #4A4A4A);
     padding: 20px;
-    font-family: 'Cinzel', serif;
-    font-size: 36px;
-    font-weight: 700;
+    font-family: 'Norse', serif;
+    font-size: 40px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
 }
 
 .header-content .rune {
-    font-size: 40px;
     color: #A63A3A;
+    font-size: 44px;
     margin-right: 10px;
 }
 
 .hero {
     padding: 60px 20px;
     text-align: center;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
 }
 
 .hero h1 {
-    font-family: 'Cinzel', serif;
-    font-size: 48px;
-    color: #F5F5F5;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-family: 'Norse', serif;
+    font-size: 50px;
+    color: #E8D8B8;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
 }
 
 .hero p {
-    font-size: 20px;
+    font-size: 22px;
     margin: 20px 0;
 }
 
 .cta-button {
-    background: #A63A3A;
-    color: #F5F5F5;
-    border: none;
+    background: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), #A63A3A;
+    color: #E8D8B8;
+    border: 2px solid #E8D8B8;
     padding: 15px 30px;
-    font-family: 'Cinzel', serif;
-    font-size: 18px;
+    font-family: 'Norse', serif;
+    font-size: 20px;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .cta-button:hover {
-    background: #8B2E2E;
+    background: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), #8B2E2E;
     transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(166, 58, 58, 0.5);
+    box-shadow: 0 0 20px rgba(166, 58, 58, 0.7);
 }
 
 .section {
     padding: 30px;
     margin: 20px auto;
     max-width: 800px;
-    background: rgba(46, 74, 98, 0.9);
-    border: 2px solid #4A6B8A;
+    background: rgba(40, 40, 40, 0.9);
+    border: 2px solid #A63A3A;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
 }
 
 h2 {
-    font-family: 'Cinzel', serif;
-    font-size: 32px;
+    font-family: 'Norse', serif;
+    font-size: 36px;
     color: #A63A3A;
     text-align: center;
 }
@@ -83,11 +113,11 @@ h2 {
 .menu-list, .activity-list, .review-list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 }
 
 .menu-item, .activity, .review {
-    background: rgba(245, 245, 245, 0.1);
+    background: rgba(232, 216, 184, 0.1);
     padding: 15px;
     border-radius: 5px;
     font-size: 18px;
@@ -95,13 +125,13 @@ h2 {
 }
 
 .menu-item:hover, .activity:hover, .review:hover {
-    background: rgba(245, 245, 245, 0.2);
+    background: rgba(232, 216, 184, 0.2);
     transform: translateX(5px);
 }
 
 .add-to-order {
     background: #A63A3A;
-    color: #F5F5F5;
+    color: #E8D8B8;
     border: none;
     padding: 8px 15px;
     border-radius: 5px;
@@ -116,22 +146,22 @@ h2 {
 }
 
 footer {
-    background: linear-gradient(90deg, #2E4A62, #4A6B8A);
+    background: linear-gradient(90deg, #2E2E2E, #4A4A4A);
     padding: 20px;
     text-align: center;
     font-size: 14px;
-    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.7);
 }
 
 .order-button, .watch-button {
     position: fixed;
     right: 20px;
-    background: #A63A3A;
-    color: #F5F5F5;
-    border: none;
+    background: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), #A63A3A;
+    color: #E8D8B8;
+    border: 2px solid #E8D8B8;
     padding: 15px 25px;
     border-radius: 5px;
-    font-family: 'Cinzel', serif;
+    font-family: 'Norse', serif;
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -141,9 +171,9 @@ footer {
 .watch-button { bottom: 80px; }
 
 .order-button:hover, .watch-button:hover {
-    background: #8B2E2E;
+    background: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), #8B2E2E;
     transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(166, 58, 58, 0.5);
+    box-shadow: 0 0 20px rgba(166, 58, 58, 0.7);
 }
 
 .hidden { display: none; }
@@ -154,7 +184,7 @@ footer {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(46, 74, 98, 0.95);
+    background: rgba(40, 40, 40, 0.95);
     padding: 20px;
     border: 3px solid #A63A3A;
     border-radius: 10px;
@@ -163,18 +193,16 @@ footer {
 }
 
 .order-popup {
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
-    display: flex;
+    display: none; /* Змінено на none, щоб не висіло */
     justify-content: center;
     align-items: center;
 }
 
 .order-popup-content {
-    background: rgba(46, 74, 98, 0.95);
+    background: rgba(40, 40, 40, 0.95);
     padding: 30px;
     border-radius: 10px;
     width: 400px;
@@ -182,12 +210,12 @@ footer {
 
 .popup-content p, .order-popup-content input, .order-popup-content textarea {
     font-family: 'Lato', sans-serif;
-    color: #F5F5F5;
+    color: #E8D8B8;
 }
 
 .close-popup, .submit-btn, .close-btn {
     background: #A63A3A;
-    color: #F5F5F5;
+    color: #E8D8B8;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -195,14 +223,14 @@ footer {
     transition: all 0.3s ease;
 }
 
-.close-btn { background: #4A6B8A; }
+.close-btn { background: #4A4A4A; }
 
 .close-popup:hover, .submit-btn:hover, .close-btn:hover {
     background: #8B2E2E;
     transform: scale(1.05);
 }
 
-.close-btn:hover { background: #2E4A62; }
+.close-btn:hover { background: #2E2E2E; }
 
 .order-popup-content input, .order-popup-content textarea {
     width: 100%;
@@ -210,7 +238,7 @@ footer {
     padding: 10px;
     border: 1px solid #A63A3A;
     border-radius: 5px;
-    background: rgba(245, 245, 245, 0.1);
+    background: rgba(232, 216, 184, 0.1);
 }
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
