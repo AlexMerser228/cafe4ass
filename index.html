@@ -50,14 +50,20 @@
         <p>📞 Телефон: Домашній</p>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2601.452413765576!2d28.46865731568347!3d49.23308247932686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDEzJzU5LjEiTiAyOMKwMjgnMDkuMiJF!5e0!3m2!1suk!2sua!4v1630000000000" width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
     </div>
+
+    <!-- Додано секцію про захист прав -->
+    <div id="rightsSection" class="section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000">
+        <h2>Захист прав</h2>
+        <p>Ми поважаємо ваші права, але за сраку не відповідаємо!</p>
+    </div>
     
     <footer data-aos="fade-up" data-aos-duration="1000">© 2025 Кафе у Дмитра. Всі права захищено. Окрім права на незайманість вашої сраки</footer>
     
     <!-- Кнопка для замовлення -->
     <button id="orderButton" class="order-button" data-aos="zoom-in" data-aos-duration="1000">Зробити замовлення</button>
 
-    <!-- Кнопка "Хто на вахті" -->
-    <button id="watchButton" class="watch-button" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">Хто на вахті?</button>
+    <!-- Кнопка "Хто на вахті" без AOS, щоб уникнути конфліктів -->
+    <button id="watchButton" class="watch-button">Хто на вахті?</button>
     
     <!-- Попап "Хто на вахті" -->
     <div id="popup" class="popup">
@@ -113,15 +119,14 @@
                 }
             });
 
-            // Відкрити попап "Хто на вахті" і відправити в Telegram з обмеженням
-            watchButton.addEventListener("click", function () {
-                popup.style.display = "flex"; // Відкриваємо попап
+            // Логіка для кнопки "Хто на вахті"
+            function showWatchPopup() {
+                popup.style.display = "flex";
 
-                const lastSent = localStorage.getItem('lastWatchSent'); // Отримуємо час останньої відправки
-                const now = Date.now(); // Поточний час
-                const tenMinutes = 10 * 60 * 1000; // 10 хвилин у мілісекундах
+                const lastSent = localStorage.getItem('lastWatchSent');
+                const now = Date.now();
+                const tenMinutes = 10 * 60 * 1000;
 
-                // Перевіряємо, чи минуло 10 хвилин
                 if (!lastSent || (now - lastSent >= tenMinutes)) {
                     const message = `По запиту з офіційного сайту даної спільноти (https://alexmerser228.github.io/cafe4ass/) Був запит Хто на вахті.\n\n${popupText.innerText}`;
                     const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
@@ -130,7 +135,7 @@
                         .then(response => response.json())
                         .then(data => {
                             if (data.ok) {
-                                localStorage.setItem('lastWatchSent', now); // Зберігаємо час відправки
+                                localStorage.setItem('lastWatchSent', now);
                                 console.log("Повідомлення відправлено в Telegram");
                             } else {
                                 console.error("Помилка відправки в Telegram:", data);
@@ -139,9 +144,10 @@
                         .catch(error => console.error("Помилка:", error));
                 } else {
                     console.log("Повідомлення не відправлено: ще не минуло 10 хвилин");
-                    // alert("Зачекайте, повідомлення можна відправляти раз на 10 хвилин!");
                 }
-            });
+            }
+
+            watchButton.addEventListener("click", showWatchPopup);
 
             // Закрити попап "Хто на вахті" з анімацією
             closePopup.addEventListener("click", function () {
@@ -183,7 +189,7 @@
                 const phone = document.getElementById("phone").value;
                 const dishes = document.getElementById("dishes").value;
                 const deliveryTime = document.getElementById("deliveryTime").value;
-                const formattedTime = new Date(deliveryTime).toLocaleString('uk-UA'); // Форматуємо дату і час
+                const formattedTime = new Date(deliveryTime).toLocaleString('uk-UA');
                 const message = `Нове замовлення:\nІм'я: ${name}\nТелефон: ${phone}\nСтрави: ${dishes}\nДата і час: ${formattedTime}`;
                 const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
 
