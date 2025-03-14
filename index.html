@@ -9,6 +9,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Анімація листочків -->
     <div class="wind-leaves">
         <span class="leaf">🍂</span>
         <span class="leaf">🍂</span>
@@ -16,18 +17,21 @@
         <span class="leaf">🍂</span>
     </div>
 
+    <!-- Шапка -->
     <header data-aos="fade-down">
         <div class="header-content">
             <span class="rune">ᚲ</span> Кафе у Дмитра
         </div>
     </header>
 
+    <!-- Геройська секція -->
     <section class="hero" data-aos="fade-up">
         <h1>Ласкаво до зали воїнів!</h1>
-        <p>Смак битви та відпочинок для героїв півночі</p>
+        <p>Смак анальної битви та відпочинок для героїв Dungeon</p>
         <button class="cta-button" onclick="document.getElementById('orderPopup').style.display='flex'">Замовити бенкет</button>
     </section>
 
+    <!-- Меню -->
     <section class="section" data-aos="slide-up">
         <h2>Меню ᚠ</h2>
         <div class="menu-list">
@@ -39,6 +43,7 @@
         </div>
     </section>
 
+    <!-- Розваги -->
     <section class="section" data-aos="slide-up" data-aos-delay="200">
         <h2>Розваги ᚱ</h2>
         <div class="activity-list">
@@ -55,15 +60,17 @@
         </div>
     </section>
 
+    <!-- Відгуки -->
     <section class="section" data-aos="slide-up" data-aos-delay="400">
         <h2>Саги ᚹ</h2>
         <div class="review-list">
-            <div class="review">⭐⭐⭐⭐⭐ "Більярд врятував вечір!" - Кулик</div>
-            <div class="review">⭐⭐⭐ "Дорофеєва в печінках." - Оля</div>
+            <div class="review">⭐⭐⭐⭐⭐ "Кишеньковий Більярд врятував вечір! Бризгнуло аж на сусідню вулицю" - Кулик</div>
+            <div class="review">⭐⭐⭐ "Дорофеєва в печінках сидить." - Оля</div>
             <div class="review">⭐⭐ "Компанія норм, крім айфонщиків." - Віктор</div>
         </div>
     </section>
 
+    <!-- Контакти -->
     <section class="section" data-aos="slide-up" data-aos-delay="600">
         <h2>Похід до нас ᛏ</h2>
         <p>📍 вул. Марії Литвиненко-Вольгемут 56, Вінниця</p>
@@ -71,16 +78,20 @@
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2601.452413765576!2d28.46865731568347!3d49.23308247932686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDnCsDEzJzU5LjEiTiAyOMKwMjgnMDkuMiJF!5e0!3m2!1suk!2sua!4v1630000000000" width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
     </section>
 
+    <!-- Закони -->
     <section class="section" data-aos="slide-up" data-aos-delay="800">
         <h2>Закони ᛚ</h2>
         <p>Ми поважаємо твої права, але за сраку не відповідаємо!</p>
     </section>
 
+    <!-- Футер -->
     <footer data-aos="fade-up">© 2025 Кафе у Дмитра. Руни тримають нас.</footer>
 
+    <!-- Кнопки -->
     <button id="orderButton" class="order-button">Замовити</button>
     <button id="watchButton" class="watch-button">Хто на вахті?</button>
 
+    <!-- Попап "Хто на вахті" -->
     <div id="popup" class="popup">
         <div class="popup-content">
             <p id="popupText">Влад п*дор на вахті, Та Бодя п*дор (поки карандашом)</p>
@@ -88,6 +99,7 @@
         </div>
     </div>
 
+    <!-- Попап замовлення -->
     <div id="orderPopup" class="order-popup">
         <div class="order-popup-content">
             <h2>Склади бенкет</h2>
@@ -107,9 +119,10 @@
     <!-- Музика -->
     <div class="music-control">
         <button id="toggleMusic" class="music-button">▶️ Увімкнути музику</button>
-        <iframe id="musicPlayer" width="0" height="0" src="https://www.youtube.com/embed/videoseries?list=PLoa5TbJ9NSu3qFjNSwUIZVQvAzXn5DQy2&autoplay=0&loop=1&controls=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+        <iframe id="musicPlayer" width="0" height="0" src="https://www.youtube.com/embed/videoseries?list=PLtKVsNqDelG3oA3G5a6p5v5v5v5v5v5v5&autoplay=0&loop=1&controls=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>
     </div>
 
+    <!-- Скрипти -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000 });
