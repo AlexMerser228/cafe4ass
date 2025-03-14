@@ -21,6 +21,54 @@ body {
     pointer-events: none;
     z-index: 1; /* Вище фону, але нижче контенту */
 }
+/* Додано до попереднього styles.css */
+
+/* Кнопка для сокири */
+.axe-button {
+    background: #A63A3A;
+    color: #E8D8B8;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.axe-button:hover {
+    background: #8B2E2E;
+    transform: scale(1.1);
+}
+
+#axeResult {
+    margin-left: 10px;
+    font-style: italic;
+}
+
+/* Музика */
+.music-control {
+    position: fixed;
+    bottom: 140px;
+    right: 20px;
+    z-index: 2;
+}
+
+.music-button {
+    background: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), #A63A3A;
+    color: #E8D8B8;
+    border: 2px solid #E8D8B8;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    transition: all 0.3s ease;
+}
+
+.music-button:hover {
+    background: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), #8B2E2E;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(166, 58, 58, 0.7);
+}
 
 .leaf {
     position: absolute;
