@@ -119,8 +119,7 @@ footer {
 }
 
 .order-button.hidden {
-    opacity: 0;
-    pointer-events: none;
+    display: none; /* Замість opacity: 0, щоб кнопка повністю зникала */
 }
 
 /* Кнопка "Хто на вахті" */
@@ -147,8 +146,7 @@ footer {
 }
 
 .watch-button.hidden {
-    opacity: 0;
-    pointer-events: none;
+    display: none; /* Замість opacity: 0, щоб кнопка повністю зникала */
 }
 
 /* Попап "Хто на вахті" */
