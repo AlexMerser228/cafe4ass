@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Lato:wght@300;400;700&display=swap');
 
 body {
     font-family: 'Lato', sans-serif;
@@ -21,54 +21,6 @@ body {
     pointer-events: none;
     z-index: 1; /* Вище фону, але нижче контенту */
 }
-/* Додано до попереднього styles.css */
-
-/* Кнопка для сокири */
-.axe-button {
-    background: #A63A3A;
-    color: #E8D8B8;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Lato', sans-serif;
-    transition: all 0.3s ease;
-}
-
-.axe-button:hover {
-    background: #8B2E2E;
-    transform: scale(1.1);
-}
-
-#axeResult {
-    margin-left: 10px;
-    font-style: italic;
-}
-
-/* Музика */
-.music-control {
-    position: fixed;
-    bottom: 140px;
-    right: 20px;
-    z-index: 2;
-}
-
-.music-button {
-    background: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), #A63A3A;
-    color: #E8D8B8;
-    border: 2px solid #E8D8B8;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Cinzel', serif;
-    transition: all 0.3s ease;
-}
-
-.music-button:hover {
-    background: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), #8B2E2E;
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(166, 58, 58, 0.7);
-}
 
 .leaf {
     position: absolute;
@@ -88,7 +40,7 @@ body {
     100% { transform: translateX(100vw) rotate(720deg); }
 }
 
-header, .hero, .section, footer, .order-button, .watch-button, .popup, .order-popup {
+header, .hero, .section, footer, .order-button, .watch-button, .popup, .order-popup, .music-control {
     position: relative;
     z-index: 2;
 }
@@ -96,7 +48,7 @@ header, .hero, .section, footer, .order-button, .watch-button, .popup, .order-po
 header {
     background: linear-gradient(90deg, #2E2E2E, #4A4A4A);
     padding: 20px;
-    font-family: 'Cinzel', serif;
+    font-family: 'Uncial Antiqua', serif;
     font-size: 40px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
@@ -115,7 +67,7 @@ header {
 }
 
 .hero h1 {
-    font-family: 'Cinzel', serif;
+    font-family: 'Uncial Antiqua', serif;
     font-size: 50px;
     color: #E8D8B8;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
@@ -131,7 +83,7 @@ header {
     color: #E8D8B8;
     border: 2px solid #E8D8B8;
     padding: 15px 30px;
-    font-family: 'Cinzel', serif;
+    font-family: 'Uncial Antiqua', serif;
     font-size: 20px;
     border-radius: 5px;
     cursor: pointer;
@@ -155,7 +107,7 @@ header {
 }
 
 h2 {
-    font-family: 'Cinzel', serif;
+    font-family: 'Uncial Antiqua', serif;
     font-size: 36px;
     color: #A63A3A;
     text-align: center;
@@ -196,6 +148,28 @@ h2 {
     transform: scale(1.1);
 }
 
+/* Кнопка для сокири */
+.axe-button {
+    background: #A63A3A;
+    color: #E8D8B8;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.axe-button:hover {
+    background: #8B2E2E;
+    transform: scale(1.1);
+}
+
+#axeResult {
+    margin-left: 10px;
+    font-style: italic;
+}
+
 footer {
     background: linear-gradient(90deg, #2E2E2E, #4A4A4A);
     padding: 20px;
@@ -212,7 +186,7 @@ footer {
     border: 2px solid #E8D8B8;
     padding: 15px 25px;
     border-radius: 5px;
-    font-family: 'Cinzel', serif;
+    font-family: 'Uncial Antiqua', serif;
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -290,6 +264,31 @@ footer {
     border: 1px solid #A63A3A;
     border-radius: 5px;
     background: rgba(232, 216, 184, 0.1);
+}
+
+/* Музика */
+.music-control {
+    position: fixed;
+    bottom: 140px;
+    right: 20px;
+    z-index: 2;
+}
+
+.music-button {
+    background: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), #A63A3A;
+    color: #E8D8B8;
+    border: 2px solid #E8D8B8;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Uncial Antiqua', serif;
+    transition: all 0.3s ease;
+}
+
+.music-button:hover {
+    background: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), #8B2E2E;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(166, 58, 58, 0.7);
 }
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
