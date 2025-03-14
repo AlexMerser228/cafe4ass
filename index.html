@@ -5,10 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кафе у Дмитра</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Norse';
+            src: url('https://raw.githubusercontent.com/alexmerser228/cafe4ass/main/Norse.otf') format('opentype');
+        }
+    </style>
 </head>
 <body>
+    <div class="wind-leaves"></div> <!-- Контейнер для анімації листочків -->
+    
     <header data-aos="fade-down">
         <div class="header-content">
             <span class="rune">ᚲ</span> Кафе у Дмитра
@@ -16,8 +24,8 @@
     </header>
 
     <section class="hero" data-aos="fade-up">
-        <h1>Вітаємо у нашій залі воїнів!</h1>
-        <p>Смак битви та відпочинок для справжніх героїв!</p>
+        <h1>Ласкаво до зали воїнів!</h1>
+        <p>Смак битви та відпочинок для героїв півночі</p>
         <button class="cta-button" onclick="document.getElementById('orderPopup').style.display='flex'">Замовити бенкет</button>
     </section>
 
@@ -64,7 +72,7 @@
         <p>Ми поважаємо твої права, але за сраку не відповідаємо!</p>
     </section>
 
-    <footer data-aos="fade-up">© 2025 Кафе у Дмитра. Руни захищають нас.</footer>
+    <footer data-aos="fade-up">© 2025 Кафе у Дмитра. Руни тримають нас.</footer>
 
     <button id="orderButton" class="order-button">Замовити</button>
     <button id="watchButton" class="watch-button">Хто на вахті?</button>
@@ -139,7 +147,11 @@
                 setTimeout(() => { popup.style.display = "none"; popup.style.animation = "fadeIn 0.3s ease-in"; }, 300);
             });
 
-            orderButton.addEventListener("click", () => orderPopup.style.display = "flex");
+            orderButton.addEventListener("click", () => {
+                orderPopup.style.display = "flex";
+                orderPopup.style.animation = "fadeIn 0.3s ease-in"; // Додаємо анімацію при відкритті
+            });
+
             closeOrderPopup.addEventListener("click", () => {
                 orderPopup.style.animation = "fadeOut 0.3s ease-out";
                 setTimeout(() => { orderPopup.style.display = "none"; orderPopup.style.animation = "fadeIn 0.3s ease-in"; }, 300);
