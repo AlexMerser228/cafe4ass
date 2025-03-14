@@ -1,8 +1,4 @@
-/* Кастомний шрифт Norse (додай файл або заміни на Cinzel, якщо немає) */
-@font-face {
-    font-family: 'Norse';
-    src: url('https://raw.githubusercontent.com/alexmerser228/cafe4ass/main/Norse.otf') format('opentype');
-}
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap');
 
 body {
     font-family: 'Lato', sans-serif;
@@ -28,10 +24,10 @@ body {
 
 .leaf {
     position: absolute;
-    font-size: 16px; /* Менший розмір */
-    opacity: 0.2; /* Ще прозоріші */
-    color: #A63A3A; /* Червоний для стилю вікінгів */
-    animation: wind 15s infinite linear; /* Повільніший рух */
+    font-size: 16px;
+    opacity: 0.2;
+    color: #A63A3A;
+    animation: wind 15s infinite linear;
 }
 
 .leaf:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
@@ -41,20 +37,18 @@ body {
 
 @keyframes wind {
     0% { transform: translateX(-100vw) rotate(0deg); }
-    100% { transform: translateX(100vw) rotate(720deg); } /* Більше обертів */
+    100% { transform: translateX(100vw) rotate(720deg); }
 }
 
-/* Секції з вищим z-index, щоб листочки не перекривали текст */
 header, .hero, .section, footer, .order-button, .watch-button, .popup, .order-popup {
     position: relative;
     z-index: 2;
 }
 
-/* Решта стилів без змін */
 header {
     background: linear-gradient(90deg, #2E2E2E, #4A4A4A);
     padding: 20px;
-    font-family: 'Norse', serif;
+    font-family: 'Cinzel', serif;
     font-size: 40px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
@@ -73,7 +67,7 @@ header {
 }
 
 .hero h1 {
-    font-family: 'Norse', serif;
+    font-family: 'Cinzel', serif;
     font-size: 50px;
     color: #E8D8B8;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
@@ -89,7 +83,7 @@ header {
     color: #E8D8B8;
     border: 2px solid #E8D8B8;
     padding: 15px 30px;
-    font-family: 'Norse', serif;
+    font-family: 'Cinzel', serif;
     font-size: 20px;
     border-radius: 5px;
     cursor: pointer;
@@ -113,7 +107,7 @@ header {
 }
 
 h2 {
-    font-family: 'Norse', serif;
+    font-family: 'Cinzel', serif;
     font-size: 36px;
     color: #A63A3A;
     text-align: center;
@@ -170,7 +164,7 @@ footer {
     border: 2px solid #E8D8B8;
     padding: 15px 25px;
     border-radius: 5px;
-    font-family: 'Norse', serif;
+    font-family: 'Cinzel', serif;
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
