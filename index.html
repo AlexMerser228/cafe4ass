@@ -47,6 +47,11 @@
             <div class="activity">🎲 Настільні ігри (з собою стіл)</div>
             <div class="activity">🎶 Ледь Жива музика</div>
             <div class="activity">🕹 Sony GayStation 4 - без футболу</div>
+            <div class="activity">
+                🪓 Кинути сокиру 
+                <button id="throwAxe" class="axe-button">Кинути!</button>
+                <span id="axeResult"></span>
+            </div>
         </div>
     </section>
 
@@ -99,6 +104,12 @@
         </div>
     </div>
 
+    <!-- Музика -->
+    <div class="music-control">
+        <button id="toggleMusic" class="music-button">▶️ Увімкнути музику</button>
+        <iframe id="musicPlayer" width="0" height="0" src="https://www.youtube.com/embed/videoseries?list=PLtKVsNqDelG3oA3G5a6p5v5v5v5v5v5v5&autoplay=0&loop=1&controls=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+    </div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000 });
@@ -112,6 +123,11 @@
             const popup = document.getElementById("popup");
             const closePopup = document.getElementById("closePopup");
             const popupText = document.getElementById("popupText");
+            const throwAxe = document.getElementById("throwAxe");
+            const axeResult = document.getElementById("axeResult");
+            const toggleMusic = document.getElementById("toggleMusic");
+            const musicPlayer = document.getElementById("musicPlayer");
+            let isPlaying = false;
 
             const botToken = "7782211334:AAEJAJ8yWMY-Ii3RUoObEWccXRTUDVwLWBM";
             const chatId = "-4132173767";
@@ -180,6 +196,25 @@
                         setTimeout(() => { orderPopup.style.display = "none"; orderForm.reset(); }, 300);
                     } else alert("Помилка!");
                 });
+            });
+
+            throwAxe.addEventListener("click", () => {
+                const results = ["Влучив у ціль! ⚔️", "Промах! Спробуй ще! 🪓", "Сокира застрягла в дереві! 🌳"];
+                const randomResult = results[Math.floor(Math.random() * results.length)];
+                axeResult.textContent = randomResult;
+                setTimeout(() => { axeResult.textContent = ""; }, 2000);
+            });
+
+            toggleMusic.addEventListener("click", () => {
+                if (!isPlaying) {
+                    musicPlayer.src = musicPlayer.src.replace("autoplay=0", "autoplay=1");
+                    toggleMusic.textContent = "⏸ Вимкнути музику";
+                    isPlaying = true;
+                } else {
+                    musicPlayer.src = musicPlayer.src.replace("autoplay=1", "autoplay=0");
+                    toggleMusic.textContent = "▶️ Увімкнути музику";
+                    isPlaying = false;
+                }
             });
 
             document.querySelector('footer').addEventListener('click', () => alert('Руни не врятують твою сраку!'));
