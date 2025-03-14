@@ -5,18 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кафе у Дмитра</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        @font-face {
-            font-family: 'Norse';
-            src: url('https://raw.githubusercontent.com/alexmerser228/cafe4ass/main/Norse.otf') format('opentype');
-        }
-    </style>
 </head>
 <body>
-    <div class="wind-leaves"></div> <!-- Контейнер для анімації листочків -->
-    
+    <div class="wind-leaves">
+        <span class="leaf">🍂</span>
+        <span class="leaf">🍂</span>
+        <span class="leaf">🍂</span>
+        <span class="leaf">🍂</span>
+    </div>
+
     <header data-aos="fade-down">
         <div class="header-content">
             <span class="rune">ᚲ</span> Кафе у Дмитра
@@ -149,7 +148,7 @@
 
             orderButton.addEventListener("click", () => {
                 orderPopup.style.display = "flex";
-                orderPopup.style.animation = "fadeIn 0.3s ease-in"; // Додаємо анімацію при відкритті
+                orderPopup.style.animation = "fadeIn 0.3s ease-in";
             });
 
             closeOrderPopup.addEventListener("click", () => {
