@@ -19,8 +19,16 @@
 
     <!-- Шапка -->
     <header data-aos="fade-down">
-        <div class="header-content">
-            <span class="rune">ᚲ</span> Кафе у Дмитра
+        <div class="container">
+            <div class="logo">
+                <img src="Logo.jpg" alt="Кафе у Дмитра" height="50">
+                <span class="rune">ᚲ</span> Кафе у Дмитра
+            </div>
+            <nav>
+                <a href="#home">Головна</a>
+                <a href="menu.html" target="_blank">Меню</a>
+                <a href="#contacts">Контакти</a>
+            </nav>
         </div>
     </header>
 
@@ -28,19 +36,7 @@
     <section class="hero" data-aos="fade-up">
         <h1>Ласкаво до зали воїнів!</h1>
         <p>Смак анальної битви та відпочинок для героїв Dungeon</p>
-        <button class="cta-button" onclick="document.getElementById('orderPopup').style.display='flex'">Замовити бенкет</button>
-    </section>
-
-    <!-- Меню -->
-    <section class="section" data-aos="slide-up">
-        <h2>Меню ᚠ</h2>
-        <div class="menu-list">
-            <div class="menu-item">🥩 Стейк з яловичини - відсутній</div>
-            <div class="menu-item">🍕 Піца "Чотири сири" - Якщо замовите <button class="add-to-order" data-dish="Піца 'Чотири сири'">Додати</button></div>
-            <div class="menu-item">🍜 Борщ український - відсутній</div>
-            <div class="menu-item">🥗 Грецький салат - відсутній</div>
-            <div class="menu-item">🍰 Тірамісу - шо це?</div>
-        </div>
+        <a href="menu.html" target="_blank" class="menu-btn">Переглянути меню</a>
     </section>
 
     <!-- Розваги -->
@@ -71,7 +67,7 @@
     </section>
 
     <!-- Контакти -->
-    <section class="section" data-aos="slide-up" data-aos-delay="600">
+    <section class="section" id="contacts" data-aos="slide-up" data-aos-delay="600">
         <h2>Похід до нас ᛏ</h2>
         <p>📍 вул. Марії Литвиненко-Вольгемут 56, Вінниця</p>
         <p>📞 Телефон: Домашній</p>
@@ -183,15 +179,6 @@
             closeOrderPopup.addEventListener("click", () => {
                 orderPopup.style.animation = "fadeOut 0.3s ease-out";
                 setTimeout(() => { orderPopup.style.display = "none"; orderPopup.style.animation = "fadeIn 0.3s ease-in"; }, 300);
-            });
-
-            document.querySelectorAll('.add-to-order').forEach(button => {
-                button.addEventListener('click', function() {
-                    const dish = this.getAttribute('data-dish');
-                    const dishesField = document.getElementById('dishes');
-                    dishesField.value += (dishesField.value ? '\n' : '') + dish;
-                    orderPopup.style.display = "flex";
-                });
             });
 
             orderForm.addEventListener("submit", function (e) {
