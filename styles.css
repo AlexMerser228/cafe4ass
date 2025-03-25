@@ -2,15 +2,15 @@
 
 body {
     font-family: 'Lato', sans-serif;
-    background: #2F2F2F; /* Чистий темний фон як у "Колиба" */
+    background: #2F2F2F;
     margin: 0;
     padding: 0;
-    color: #FFFFFF; /* Білий текст для контрасту */
+    color: #FFFFFF;
     overflow-x: hidden;
     position: relative;
 }
 
-/* Анімація листочків (залишаю твій елемент) */
+/* Анімація листочків */
 .wind-leaves {
     position: fixed;
     top: 0;
@@ -25,7 +25,7 @@ body {
     position: absolute;
     font-size: 16px;
     opacity: 0.2;
-    color: #D4AF37; /* Золотий акцент замість червоного */
+    color: #D4AF37;
     animation: wind 15s infinite linear;
 }
 
@@ -55,7 +55,7 @@ header, .hero, .section, footer, .order-button, .watch-button, .popup, .order-po
 }
 
 header {
-    background: #1A1A1A; /* Темніший фон для шапки */
+    background: #1A1A1A;
     padding: 20px 0;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
 }
@@ -65,7 +65,7 @@ header {
     align-items: center;
     font-family: 'Uncial Antiqua', serif;
     font-size: 32px;
-    color: #D4AF37; /* Золотий текст */
+    color: #D4AF37;
 }
 
 .logo img {
@@ -88,7 +88,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #E6C84F; /* Світліший золотий при наведенні */
+    color: #E6C84F;
 }
 
 .hero {
