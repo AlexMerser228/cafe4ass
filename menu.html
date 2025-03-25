@@ -108,7 +108,7 @@
         <div class="menu-item"><span>Revo</span><span>65 грн</span></div>
     </div>
 
-    <form>
+    <form id="orderForm">
         <h2>Склади бенкет</h2>
         <label>Оберіть страву/напій: <input type="text" name="item" required></label>
         <label>Кількість: <input type="number" name="quantity" min="1" required></label>
@@ -117,5 +117,26 @@
         <label>Час доставки: <input type="datetime-local" name="deliveryTime" required></label>
         <button type="submit">Відправити замовлення</button>
     </form>
+
+    <script>
+        document.getElementById("orderForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const item = document.querySelector("input[name='item']").value;
+            const quantity = document.querySelector("input[name='quantity']").value;
+            const name = document.querySelector("input[name='name']").value;
+            const phone = document.querySelector("input[name='phone']").value;
+            const deliveryTime = new Date(document.querySelector("input[name='deliveryTime']").value).toLocaleString('uk-UA');
+            const message = `Замовлення з меню:\nСтрава/напій: ${item}\nКількість: ${quantity}\nІм'я: ${name}\nТелефон: ${phone}\nЧас: ${deliveryTime}`;
+            const botToken = "7782211334:AAEJAJ8yWMY-Ii3RUoObEWccXRTUDVwLWBM";
+            const chatId = "-4132173767";
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+            fetch(url).then(response => response.json()).then(data => {
+                if (data.ok) {
+                    alert("Замовлення відправлено!");
+                    document.getElementById("orderForm").reset();
+                } else alert("Помилка!");
+            });
+        });
+    </script>
 </body>
 </html>
