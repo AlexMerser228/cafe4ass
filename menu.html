@@ -33,11 +33,27 @@
             animation: fadeIn 1s ease-in;
         }
         .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: 15px 0;
             border-bottom: 1px solid #555;
             font-size: 18px;
         }
-        form {
+        .add-btn {
+            background: #D4AF37;
+            color: #2F2F2F;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .add-btn:hover {
+            background: #E6C84F;
+            transform: scale(1.05);
+        }
+        .cart {
             max-width: 800px;
             margin: 40px auto;
             background: rgba(40, 40, 40, 0.95);
@@ -46,12 +62,49 @@
             border: 3px solid #D4AF37;
             animation: fadeIn 1s ease-in;
         }
-        label {
+        .cart h2 {
+            margin-top: 0;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #555;
+        }
+        .cart-item span {
+            flex-grow: 1;
+        }
+        .cart-item input {
+            width: 60px;
+            padding: 5px;
+            margin: 0 10px;
+            border: 1px solid #D4AF37;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #FFFFFF;
+            text-align: center;
+        }
+        .remove-btn {
+            background: #4A4A4A;
+            color: #FFFFFF;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .remove-btn:hover {
+            background: #2E2E2E;
+        }
+        .cart-form {
+            margin-top: 20px;
+        }
+        .cart-form label {
             display: block;
             margin: 10px 0;
             color: #D4AF37;
         }
-        input, textarea {
+        .cart-form input {
             width: 100%;
             padding: 10px;
             margin: 5px 0;
@@ -60,7 +113,7 @@
             background: rgba(255, 255, 255, 0.1);
             color: #FFFFFF;
         }
-        button {
+        .submit-btn {
             background: #D4AF37;
             color: #2F2F2F;
             padding: 10px 20px;
@@ -69,8 +122,9 @@
             cursor: pointer;
             font-family: 'Uncial Antiqua', serif;
             transition: all 0.3s ease;
+            width: 100%;
         }
-        button:hover {
+        .submit-btn:hover {
             background: #E6C84F;
             transform: scale(1.05);
         }
@@ -85,54 +139,150 @@
 
     <div class="menu-section">
         <h2>Закуски</h2>
-        <div class="menu-item">Снеки</div>
-        <div class="menu-item">Чіпси</div>
-        <div class="menu-item">Горішки</div>
-        <div class="menu-item">Сухарики</div>
+        <div class="menu-item">
+            <span>Снеки</span>
+            <button class="add-btn" data-item="Снеки">Додати</button>
+        </div>
+        <div class="menu-item">
+            <span>Чіпси</span>
+            <button class="add-btn" data-item="Чіпси">Додати</button>
+        </div>
+        <div class="menu-item">
+            <span>Горішки</span>
+            <button class="add-btn" data-item="Горішки">Додати</button>
+        </div>
+        <div class="menu-item">
+            <span>Сухарики</span>
+            <button class="add-btn" data-item="Сухарики">Додати</button>
+        </div>
     </div>
 
     <div class="menu-section">
         <h2>Гарячі страви</h2>
-        <div class="menu-item">Нагенси</div>
-        <div class="menu-item">Піца</div>
-        <div class="menu-item">Юшка з-під старого Жида</div>
+        <div class="menu-item">
+            <span>Нагенси</span>
+            <button class="add-btn" data-item="Нагенси">Додати</button>
+        </div>
+        <div class="menu-item">
+            <span>Піца</span>
+            <button class="add-btn" data-item="Піца">Додати</button>
+        </div>
+        <div class="menu-item">
+            <span>Юшка з-під старого Жида</span>
+            <button class="add-btn" data-item="Юшка з-під старого Жида">Додати</button>
+        </div>
     </div>
 
     <div class="menu-section">
         <h2>Напої</h2>
-        <div class="menu-item">Коньяк (Baklaga Dmytra)</div>
-        <div class="menu-item">Кольяк (Lili by Ribnik)</div>
-        <div class="menu-item">Пиво</div>
-        <div class="menu-item">Revo</div>
+        <div class="menu-item">
+            <span>Коньяк (Baklaga Dmytra)</span>
+            <button class="add-btn" data-item="Коньяк (Baklaga Dmytra)">Додати</button>
+        </div>
+        <div class="menu-item">
+            <span>Кольяк (Lili by Ribnik)</span>
+            <button class="add-btn" data-item="Кольяк (Lili by Ribnik)">Додати</button>
+        </div>
+        <div class="menu-item">
+            <span>Пиво</span>
+            <button class="add-btn" data-item="Пиво">Додати</button>
+        </div>
+        <div class="menu-item">
+            <span>Revo</span>
+            <button class="add-btn" data-item="Revo">Додати</button>
+        </div>
     </div>
 
-    <form id="orderForm">
-        <h2>Склади бенкет</h2>
-        <label>Оберіть страву/напій: <input type="text" name="item" required></label>
-        <label>Кількість: <input type="number" name="quantity" min="1" required></label>
-        <label>Ваше ім'я: <input type="text" name="name" required></label>
-        <label>Телефон: <input type="tel" name="phone" required></label>
-        <label>Час доставки: <input type="datetime-local" name="deliveryTime" required></label>
-        <button type="submit">Відправити замовлення</button>
-    </form>
+    <div class="cart">
+        <h2>Кошик</h2>
+        <div id="cartItems"></div>
+        <form id="cartForm" class="cart-form">
+            <label>Ваше ім'я: <input type="text" name="name" required></label>
+            <label>Телефон: <input type="tel" name="phone" required></label>
+            <label>Час доставки: <input type="datetime-local" name="deliveryTime" required></label>
+            <button type="submit" class="submit-btn">Відправити замовлення</button>
+        </form>
+    </div>
 
     <script>
-        document.getElementById("orderForm").addEventListener("submit", function (e) {
+        const cart = {};
+
+        document.querySelectorAll('.add-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const item = this.getAttribute('data-item');
+                if (cart[item]) {
+                    cart[item]++;
+                } else {
+                    cart[item] = 1;
+                }
+                updateCart();
+            });
+        });
+
+        function updateCart() {
+            const cartItems = document.getElementById('cartItems');
+            cartItems.innerHTML = '';
+            for (const [item, quantity] of Object.entries(cart)) {
+                const div = document.createElement('div');
+                div.classList.add('cart-item');
+                div.innerHTML = `
+                    <span>${item}</span>
+                    <input type="number" min="1" value="${quantity}" data-item="${item}">
+                    <button class="remove-btn" data-item="${item}">Видалити</button>
+                `;
+                cartItems.appendChild(div);
+            }
+
+            document.querySelectorAll('.cart-item input').forEach(input => {
+                input.addEventListener('change', function () {
+                    const item = this.getAttribute('data-item');
+                    const newQuantity = parseInt(this.value);
+                    if (newQuantity > 0) {
+                        cart[item] = newQuantity;
+                    } else {
+                        delete cart[item];
+                        updateCart();
+                    }
+                });
+            });
+
+            document.querySelectorAll('.remove-btn').forEach(button => {
+                button.addEventListener('click', function () {
+                    const item = this.getAttribute('data-item');
+                    delete cart[item];
+                    updateCart();
+                });
+            });
+        }
+
+        document.getElementById('cartForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            const item = document.querySelector("input[name='item']").value;
-            const quantity = document.querySelector("input[name='quantity']").value;
+            if (Object.keys(cart).length === 0) {
+                alert('Кошик порожній!');
+                return;
+            }
+
             const name = document.querySelector("input[name='name']").value;
             const phone = document.querySelector("input[name='phone']").value;
             const deliveryTime = new Date(document.querySelector("input[name='deliveryTime']").value).toLocaleString('uk-UA');
-            const message = `Замовлення з меню:\nСтрава/напій: ${item}\nКількість: ${quantity}\nІм'я: ${name}\nТелефон: ${phone}\nЧас: ${deliveryTime}`;
+            let orderDetails = 'Замовлення з меню:\n';
+            for (const [item, quantity] of Object.entries(cart)) {
+                orderDetails += `${item}: ${quantity}\n`;
+            }
+            const message = `${orderDetails}Ім'я: ${name}\nТелефон: ${phone}\nЧас: ${deliveryTime}`;
             const botToken = "7782211334:AAEJAJ8yWMY-Ii3RUoObEWccXRTUDVwLWBM";
             const chatId = "-4132173767";
             const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
             fetch(url).then(response => response.json()).then(data => {
                 if (data.ok) {
                     alert("Замовлення відправлено!");
-                    document.getElementById("orderForm").reset();
-                } else alert("Помилка!");
+                    Object.keys(cart).forEach(key => delete cart[key]);
+                    document.getElementById('cartForm').reset();
+                    updateCart();
+                } else {
+                    alert("Помилка!");
+                }
             });
         });
     </script>
