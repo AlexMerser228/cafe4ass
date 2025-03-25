@@ -2,16 +2,15 @@
 
 body {
     font-family: 'Lato', sans-serif;
-    background: linear-gradient(rgba(50, 50, 50, 0.8), rgba(50, 50, 50, 0.8)), url('https://www.transparenttextures.com/patterns/paper-fibers.png') repeat;
-    background-size: cover;
+    background: #2F2F2F; /* Чистий темний фон як у "Колиба" */
     margin: 0;
     padding: 0;
-    color: #E8D8B8;
+    color: #FFFFFF; /* Білий текст для контрасту */
     overflow-x: hidden;
     position: relative;
 }
 
-/* Анімація вітру з листочками */
+/* Анімація листочків (залишаю твій елемент) */
 .wind-leaves {
     position: fixed;
     top: 0;
@@ -26,7 +25,7 @@ body {
     position: absolute;
     font-size: 16px;
     opacity: 0.2;
-    color: #A63A3A;
+    color: #D4AF37; /* Золотий акцент замість червоного */
     animation: wind 15s infinite linear;
 }
 
@@ -40,28 +39,60 @@ body {
     100% { transform: translateX(100vw) rotate(720deg); }
 }
 
+/* Контейнер для шапки */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
 header, .hero, .section, footer, .order-button, .watch-button, .popup, .order-popup, .music-control {
     position: relative;
     z-index: 2;
 }
 
 header {
-    background: linear-gradient(90deg, #2E2E2E, #4A4A4A);
-    padding: 20px;
-    font-family: 'Uncial Antiqua', serif;
-    font-size: 40px;
-    text-align: center;
+    background: #1A1A1A; /* Темніший фон для шапки */
+    padding: 20px 0;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
 }
 
-.header-content .rune {
-    color: #A63A3A;
-    font-size: 44px;
+.logo {
+    display: flex;
+    align-items: center;
+    font-family: 'Uncial Antiqua', serif;
+    font-size: 32px;
+    color: #D4AF37; /* Золотий текст */
+}
+
+.logo img {
+    height: 50px;
     margin-right: 10px;
 }
 
+.logo .rune {
+    color: #D4AF37;
+    font-size: 36px;
+    margin-right: 10px;
+}
+
+nav a {
+    color: #D4AF37;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #E6C84F; /* Світліший золотий при наведенні */
+}
+
 .hero {
-    padding: 60px 20px;
+    padding: 100px 20px;
     text-align: center;
     background: rgba(0, 0, 0, 0.6);
 }
@@ -69,7 +100,7 @@ header {
 .hero h1 {
     font-family: 'Uncial Antiqua', serif;
     font-size: 50px;
-    color: #E8D8B8;
+    color: #D4AF37;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
 }
 
@@ -78,79 +109,62 @@ header {
     margin: 20px 0;
 }
 
-.cta-button {
-    background: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), #A63A3A;
-    color: #E8D8B8;
-    border: 2px solid #E8D8B8;
+.menu-btn {
+    background: #D4AF37;
+    color: #2F2F2F;
     padding: 15px 30px;
     font-family: 'Uncial Antiqua', serif;
     font-size: 20px;
     border-radius: 5px;
-    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
     transition: all 0.3s ease;
 }
 
-.cta-button:hover {
-    background: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), #8B2E2E;
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(166, 58, 58, 0.7);
+.menu-btn:hover {
+    background: #E6C84F;
+    transform: scale(1.05);
 }
 
 .section {
-    padding: 30px;
+    padding: 40px 20px;
     margin: 20px auto;
     max-width: 800px;
     background: rgba(40, 40, 40, 0.9);
-    border: 2px solid #A63A3A;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
 }
 
 h2 {
     font-family: 'Uncial Antiqua', serif;
     font-size: 36px;
-    color: #A63A3A;
+    color: #D4AF37;
     text-align: center;
+    border-bottom: 2px solid #D4AF37;
+    padding-bottom: 10px;
 }
 
-.menu-list, .activity-list, .review-list {
+.activity-list, .review-list {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-.menu-item, .activity, .review {
-    background: rgba(232, 216, 184, 0.1);
+.activity, .review {
+    background: rgba(255, 255, 255, 0.05);
     padding: 15px;
     border-radius: 5px;
     font-size: 18px;
     transition: all 0.3s ease;
 }
 
-.menu-item:hover, .activity:hover, .review:hover {
-    background: rgba(232, 216, 184, 0.2);
+.activity:hover, .review:hover {
+    background: rgba(255, 255, 255, 0.1);
     transform: translateX(5px);
 }
 
-.add-to-order {
-    background: #A63A3A;
-    color: #E8D8B8;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'Lato', sans-serif;
-    transition: all 0.3s ease;
-}
-
-.add-to-order:hover {
-    background: #8B2E2E;
-    transform: scale(1.1);
-}
-
 .axe-button {
-    background: #A63A3A;
-    color: #E8D8B8;
+    background: #D4AF37;
+    color: #2F2F2F;
     border: none;
     padding: 8px 15px;
     border-radius: 5px;
@@ -160,8 +174,8 @@ h2 {
 }
 
 .axe-button:hover {
-    background: #8B2E2E;
-    transform: scale(1.1);
+    background: #E6C84F;
+    transform: scale(1.05);
 }
 
 #axeResult {
@@ -170,7 +184,7 @@ h2 {
 }
 
 footer {
-    background: linear-gradient(90deg, #2E2E2E, #4A4A4A);
+    background: #1A1A1A;
     padding: 20px;
     text-align: center;
     font-size: 14px;
@@ -180,24 +194,23 @@ footer {
 .order-button, .watch-button {
     position: fixed;
     right: 20px;
-    background: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), #A63A3A;
-    color: #E8D8B8;
-    border: 2px solid #E8D8B8;
+    background: #D4AF37;
+    color: #2F2F2F;
     padding: 15px 25px;
     border-radius: 5px;
     font-family: 'Uncial Antiqua', serif;
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
+    border: none;
 }
 
 .order-button { bottom: 20px; }
 .watch-button { bottom: 80px; }
 
 .order-button:hover, .watch-button:hover {
-    background: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), #8B2E2E;
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(166, 58, 58, 0.7);
+    background: #E6C84F;
+    transform: scale(1.05);
 }
 
 .hidden { display: none; }
@@ -210,7 +223,7 @@ footer {
     transform: translate(-50%, -50%);
     background: rgba(40, 40, 40, 0.95);
     padding: 20px;
-    border: 3px solid #A63A3A;
+    border: 3px solid #D4AF37;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
     z-index: 1000;
@@ -220,7 +233,6 @@ footer {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
-    display: none;
     justify-content: center;
     align-items: center;
 }
@@ -234,12 +246,12 @@ footer {
 
 .popup-content p, .order-popup-content input, .order-popup-content textarea {
     font-family: 'Lato', sans-serif;
-    color: #E8D8B8;
+    color: #FFFFFF;
 }
 
 .close-popup, .submit-btn, .close-btn {
-    background: #A63A3A;
-    color: #E8D8B8;
+    background: #D4AF37;
+    color: #2F2F2F;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -250,7 +262,7 @@ footer {
 .close-btn { background: #4A4A4A; }
 
 .close-popup:hover, .submit-btn:hover, .close-btn:hover {
-    background: #8B2E2E;
+    background: #E6C84F;
     transform: scale(1.05);
 }
 
@@ -260,9 +272,10 @@ footer {
     width: 100%;
     margin: 10px 0;
     padding: 10px;
-    border: 1px solid #A63A3A;
+    border: 1px solid #D4AF37;
     border-radius: 5px;
-    background: rgba(232, 216, 184, 0.1);
+    background: rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
 }
 
 .music-control {
@@ -273,9 +286,9 @@ footer {
 }
 
 .music-button {
-    background: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), #A63A3A;
-    color: #E8D8B8;
-    border: 2px solid #E8D8B8;
+    background: #D4AF37;
+    color: #2F2F2F;
+    border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
@@ -284,10 +297,15 @@ footer {
 }
 
 .music-button:hover {
-    background: url('https://www.transparenttextures.com/patterns/wood-pattern.png'), #8B2E2E;
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(166, 58, 58, 0.7);
+    background: #E6C84F;
+    transform: scale(1.05);
 }
 
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+@keyframes fadeIn { 
+    from { opacity: 0; transform: translateY(20px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+@keyframes fadeOut { 
+    from { opacity: 1; transform: translateY(0); } 
+    to { opacity: 0; transform: translateY(20px); } 
+}
