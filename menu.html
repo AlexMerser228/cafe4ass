@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню - Кафе у Дмитра</title>
+    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #2F2F2F;
+            color: #FFFFFF;
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #D4AF37;
+            font-family: 'Uncial Antiqua', serif;
+            font-size: 40px;
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: #D4AF37;
+            font-family: 'Uncial Antiqua', serif;
+            font-size: 30px;
+            border-bottom: 2px solid #D4AF37;
+            padding-bottom: 10px;
+        }
+        .menu-section {
+            max-width: 800px;
+            margin: 40px auto;
+            animation: fadeIn 1s ease-in;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #555;
+            font-size: 18px;
+        }
+        form {
+            max-width: 800px;
+            margin: 40px auto;
+            background: rgba(40, 40, 40, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            border: 3px solid #D4AF37;
+            animation: fadeIn 1s ease-in;
+        }
+        label {
+            display: block;
+            margin: 10px 0;
+            color: #D4AF37;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #D4AF37;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #FFFFFF;
+        }
+        button {
+            background: #D4AF37;
+            color: #2F2F2F;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Uncial Antiqua', serif;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: #E6C84F;
+            transform: scale(1.05);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Меню Кафе у Дмитра</h1>
+
+    <div class="menu-section">
+        <h2>Закуски</h2>
+        <div class="menu-item"><span>Снеки</span><span>35 грн</span></div>
+        <div class="menu-item"><span>Чіпси</span><span>40 грн</span></div>
+        <div class="menu-item"><span>Горішки</span><span>45 грн</span></div>
+        <div class="menu-item"><span>Сухарики</span><span>30 грн</span></div>
+    </div>
+
+    <div class="menu-section">
+        <h2>Гарячі страви</h2>
+        <div class="menu-item"><span>Нагенси</span><span>80 грн</span></div>
+        <div class="menu-item"><span>Піца</span><span>120 грн</span></div>
+        <div class="menu-item"><span>Юшка з-під старого Жида</span><span>90 грн</span></div>
+    </div>
+
+    <div class="menu-section">
+        <h2>Напої</h2>
+        <div class="menu-item"><span>Коньяк (Baklaga Dmytra)</span><span>70 грн</span></div>
+        <div class="menu-item"><span>Кольяк (Lili by Ribnik)</span><span>60 грн</span></div>
+        <div class="menu-item"><span>Пиво</span><span>50 грн</span></div>
+        <div class="menu-item"><span>Revo</span><span>65 грн</span></div>
+    </div>
+
+    <form>
+        <h2>Склади бенкет</h2>
+        <label>Оберіть страву/напій: <input type="text" name="item" required></label>
+        <label>Кількість: <input type="number" name="quantity" min="1" required></label>
+        <label>Ваше ім'я: <input type="text" name="name" required></label>
+        <label>Телефон: <input type="tel" name="phone" required></label>
+        <label>Час доставки: <input type="datetime-local" name="deliveryTime" required></label>
+        <button type="submit">Відправити замовлення</button>
+    </form>
+</body>
+</html>
